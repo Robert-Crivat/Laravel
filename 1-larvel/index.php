@@ -1,18 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>demo</title>
-</head>
-    <body>
-        
-        <h1>
+<?php
+    $books = [
+        [
+            "name" => "Do androids dream of electric sheep",
+            "author" => "Philip K. Dick",
+            "releasaeYear" => 1968,
+            "purchaseUrl" => 'http://example.com'
+        ],
 
-        <?php 
-            echo "Hello, world";
-        ?>
+        [
+            "name" => "the langoliers",
+            "author" => "andy weir",
+            "releasaeYear" => 2021,
+            "purchaseUrl" => 'http://example.com'
+        ],
 
-        </h1>
+        [
+            "name" => "the martian",
+            "author" => "andy weir",
+            "releasaeYear" => 2011,
+            "purchaseUrl" => 'http://example.com'
+        ],
+    ];
 
-    </body>
-</html>
+    function filter($items, $fn)
+    {
+
+        $filteredItems = [];
+        foreach ($items as $item) {
+            if ($fn($item)) {
+                $filteredItems[] = $item;
+            }
+        }
+        return $filteredItems;
+    };
+
+    $filteredBooks = array_filter($books, function ($book) {
+        return $book["releasaeYear"] <= 1968;
+    });
+
+    require "index.view.php";
