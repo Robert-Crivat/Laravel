@@ -19,5 +19,6 @@ $person = new Person();
 
 $person -> name = 'john doe';
 $person -> age = 25;
+$status = 0;
 
-dd($person->breathe());
+dd($person->breathe($status));
