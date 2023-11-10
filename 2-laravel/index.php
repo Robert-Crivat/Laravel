@@ -2,16 +2,12 @@
 
 require "functions.php";
 
-//require "router.php";
+require "Database.php";
 
-$dsn= 'mysql:host=127.0.0.1; dbname=Myapp; port = 3306;';
-$db_user = 'root';
+$config = require "config.php";
 
-$pdo = new PDO($dsn, $db_user,);
-
-$statement = $pdo->prepare("SELECT * from posts");
-$statement->execute();
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+$db = new Database($config['database']);
+$posts = $db ->query("SELECT * from posts");
 
 foreach ($posts as $post) {
     echo "<li>". $post['title'] . "</li>";
