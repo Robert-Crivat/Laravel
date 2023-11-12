@@ -7,7 +7,6 @@
         '/contact' => 'controllers/contact.php',
         '/notes' => 'controllers/notes.php',
         '/note' => 'controllers/note.php',
-        '/alldb' => 'controllers/alldb.php',
     ];
 
     function routeToController($uri, $routs)
