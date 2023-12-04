@@ -1,15 +1,17 @@
 <?php
-class Database {
+
+class Database
+{
     public $connection;
     public $statement;
 
     public function __construct($config)
     {
-        $dsn = 'mysql:' .  http_build_query($config, '', ';');
+        $dsn = 'mysql:' . http_build_query($config, '', ';');
         $db_user = 'robert';
         $db_ps = 'robert';
 
-        $this -> connection = new PDO($dsn, $db_user, $db_user, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        $this->connection = new PDO($dsn, $db_user, $db_user, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
     }
 
     public function query($query, $params = [])
@@ -21,7 +23,7 @@ class Database {
         return $this;
     }
 
-    public function Fetch()
+    public function find()
     {
         return $this->statement->fetch();
     }
@@ -31,10 +33,11 @@ class Database {
         return $this->statement->fetchAll();
     }
 
-    public function FindORFail()
+    public function findOrFail()
     {
-        $result = $this ->find();
-        if (! $result){
+        $result = $this->find();
+
+        if (!$result) {
             abort();
         }
 

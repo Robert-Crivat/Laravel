@@ -1,5 +1,4 @@
 <?php
-
 class Validator
 {
     public function isStringEmpty($value)

@@ -1,10 +1,10 @@
 <?php
 
-    require 'Validator.php';
+$heading = "Create notes";
 
-    $heading = "Create note";
+    require  base_path("Validator.php");
 
-    $config = require 'config.php';
+    $config = require base_path('config.php');
     $db = new Database($config['database']);
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -18,12 +18,7 @@
             $errors ['body'] = "Body is required";
         }
 
-        if(strlen($_POST['body']) > 1000)
-        {
-            $errors ['body'] = "Body can be over 1000";
-        }
-
-        if (strlen($_POST['title']) == 0)
+        if ($validator->isStringEmpty($_POST["title"]))
         {
             $errors ['title'] = "title is required";
         }
@@ -40,4 +35,8 @@
         }
     }
 
-    require "Views/note-create.view.php";
+    //dd($errors);
+
+ view("/notes/create.view.php", isset($errors)?
+     ['heading' => 'Creation note', 'errors' => $errors] :
+     ['heading' => 'Creation note',] );

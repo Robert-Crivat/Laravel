@@ -1,2 +1,2 @@
 <?php
-    require "Views/404.view.php";
+    view ("404.view.php");

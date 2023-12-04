@@ -1,6 +1,6 @@
-<?php require "Partials/head.php"; ?>
-<?php require "Partials/nav.php"; ?>
-<?php require "Partials/banner.php" ?>
+<?php require base_path("views/Partials/head.php"); ?>
+<?php require base_path("views/Partials/nav.php"); ?>
+<?php require base_path("views/Partials/banner.php") ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -37,4 +37,4 @@
     </div>  
 </main>
 
-<?php require "Partials/footer.php"; ?>
+<?php require base_path("views/Partials/footer.php"); ?>
