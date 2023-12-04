@@ -18,12 +18,6 @@
             $errors ['body'] = "Body is required";
         }
 
-/*
-        if(strlen($_POST['body'] == 0))
-        {
-            $errors ['body'] = "Body is required";
-        }
-*/
         if(strlen($_POST['body']) > 1000)
         {
             $errors ['body'] = "Body can be over 1000";
