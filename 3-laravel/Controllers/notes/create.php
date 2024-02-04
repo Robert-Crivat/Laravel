@@ -2,7 +2,7 @@
 
 $heading = "Create notes";
 
-    require  base_path("Validator.php");
+    require  base_path("Core/Validator.php");
 
     $config = require base_path('config.php');
     $db = new Database($config['database']);
@@ -33,6 +33,12 @@ $heading = "Create notes";
                 ]
             );
         }
+
+        view("/notes/index.view.php",[
+            'heading' => "Notes",
+            "query" => $db -> query('SELECT * FROM notes where user_id = 1')->get(),
+        ]);
+
     }
 
     //dd($errors);

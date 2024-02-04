@@ -6,5 +6,5 @@
         '/notes' => 'controllers/notes/index.php',
         '/notes/create' => 'controllers/notes/create.php',
         '/note' => 'controllers/notes/show.php',
-        '/test' => 'controllers/test.php',
+        '/noteupdate' => 'controllers/notes/update.php',
     ];

@@ -9,14 +9,6 @@
         <p>
         <li>
             <a href="/note?id=<?= $note['id'] ?>" class="text-blue-500 hover : underLine"> <?=$note['title']; ?> </a>
-            <!---
-            
-                <form action="mt-6" method="post">
-                    <input type="hidden" name="id" value="<?= $note['id']?>">
-                    <button type="submit" class=" text-sm text-red-500">Delete</button>
-                </form>
-            --->
-            
         </li>
         </p>
 
